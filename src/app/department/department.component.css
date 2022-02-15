@@ -1,0 +1,27 @@
+p {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.editOrDelete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editOrDelete a {
+  padding: 5px 25px;
+  background-color: rgb(72, 122, 72);
+  color: #fff;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.data {
+  margin: 10px 0;
+  background-color: #eee;
+  padding: 10px 0px;
+  border-radius: 3px;
+}

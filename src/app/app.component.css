@@ -1,0 +1,21 @@
+.wrapper {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.department-heading {
+  text-align: center;
+  font-size: 30px;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.nav-button {
+  padding: 7px 10px;
+  background-color: rgb(44, 94, 134);
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 20px;
+  text-decoration: none;
+}

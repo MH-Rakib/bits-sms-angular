@@ -1,0 +1,37 @@
+<div class="department row">
+  <div class="id col-sm-2">
+    <p>Serial no.</p>
+  </div>
+  <div class="id col-sm-2">
+    <p>Id</p>
+  </div>
+  <div class="name col-sm-3">
+    <p>Department</p>
+  </div>
+  <div class="edit col-sm-2">
+    <p>Edit</p>
+  </div>
+  <div class="delete col-sm-3">
+    <p>Delete</p>
+  </div>
+</div>
+
+<div *ngFor="let department of departments" class="department row data">
+  <div class="id col-sm-2">
+    <p>{{ departments.indexOf(department) + 1 }}</p>
+  </div>
+  <div class="id col-sm-2">
+    <p>{{ department.id }}</p>
+  </div>
+  <div class="name col-sm-3">
+    <p>{{ department.name }}</p>
+  </div>
+  <div class="editOrDelete col-sm-2">
+    <a routerLink="/department/editDepartment/{{ department.id }}">Edit</a>
+  </div>
+  <div class="editOrDelete col-sm-3">
+    <a (click)="deleteDepartmentById(department.id)" class="bg-danger"
+      >Delete</a
+    >
+  </div>
+</div>

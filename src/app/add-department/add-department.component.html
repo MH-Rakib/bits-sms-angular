@@ -1,0 +1,41 @@
+<p style="text-align: center">Add a department</p>
+
+<div class="row">
+  <div class="col-sm-6 mx-auto">
+    <form
+      #departmentForm="ngForm"
+      (ngSubmit)="addDepartment(departmentForm.value)"
+    >
+      <input
+        ngModel
+        class="departmentInput"
+        type="text"
+        name="id"
+        id="deptId"
+        placeholder="Department Id"
+      />
+      <br />
+      <input
+        ngModel
+        class="departmentInput"
+        type="text"
+        name="name"
+        id="deptName"
+        placeholder="Department Name"
+      />
+      <br />
+      <div class="buttons row">
+        <div class="col-6">
+          <button type="submit" class="addOrUpdateDepartment">
+            Add Department
+          </button>
+        </div>
+        <div class="col-6">
+          <button (click)="goBack()" type="button" class="goBack">
+            Go Back
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
