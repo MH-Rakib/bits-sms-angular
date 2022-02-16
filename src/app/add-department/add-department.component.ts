@@ -13,18 +13,25 @@ export class AddDepartmentComponent implements OnInit {
     private department: DepartmentService,
     private location: Location
   ) {}
+  alert: boolean = false;
 
   ngOnInit(): void {}
 
   addDepartment(data: NgForm) {
-    console.log(data);
-    this.department
-      .addDepartment(data)
-      .subscribe((response) => console.log(response));
-    alert('Added successfully');
+    this.department.addDepartment(data).subscribe((response) => {
+      this.showAlert();
+    });
   }
 
   goBack() {
+    this.location.back();
+  }
+
+  showAlert() {
+    this.alert = true;
+  }
+  closeAlert() {
+    this.alert = false;
     this.location.back();
   }
 }

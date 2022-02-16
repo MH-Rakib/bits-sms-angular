@@ -24,13 +24,10 @@ export class DepartmentService {
   }
 
   deleteDepartment(id: any) {
-    alert('Do you want to delete this Department?');
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
   updateDepartment(id: any, data: NgForm) {
-    alert(`${this.baseUrl}/${id}`);
-    console.log(data);
     return this.http.put(`${this.baseUrl}/${id}`, data);
   }
 }

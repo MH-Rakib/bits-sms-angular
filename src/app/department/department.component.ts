@@ -12,9 +12,11 @@ export class DepartmentComponent implements OnInit {
   departments: any = [];
 
   constructor(
-    private department: DepartmentService,
-    private route: ActivatedRoute
+    private department: DepartmentService // private route: ActivatedRoute
   ) {}
+
+  deleteWarn: boolean = false;
+  alert: boolean = false;
 
   ngOnInit(): void {
     this.getDepartments();
@@ -22,15 +24,32 @@ export class DepartmentComponent implements OnInit {
 
   deleteDepartmentById(id: any) {
     this.department.deleteDepartment(id).subscribe((response) => {
-      alert('Deleted successfully');
       this.getDepartments();
+      this.closeWarn();
+      this.showAlert();
     });
   }
 
   getDepartments() {
     this.department.getDepartments().subscribe((data) => {
-      console.log(data);
+      this.showWarn();
       this.departments = data;
     });
+  }
+
+  showWarn() {
+    this.deleteWarn = true;
+  }
+
+  closeWarn() {
+    this.deleteWarn = false;
+  }
+
+  showAlert() {
+    this.alert = true;
+  }
+
+  closeAlert() {
+    this.alert = false;
   }
 }

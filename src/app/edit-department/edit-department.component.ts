@@ -19,13 +19,14 @@ export class EditDepartmentComponent implements OnInit {
   ) {}
 
   depart: any | undefined;
+  alert: boolean = false;
 
   ngOnInit(): void {
     this.getDepartmentData();
   }
   getEditedDepartmentData(id: any, data: NgForm) {
     this.department.updateDepartment(id, data).subscribe((response) => {
-      alert('Department data has updated.');
+      this.showAlert();
     });
   }
 
@@ -38,6 +39,15 @@ export class EditDepartmentComponent implements OnInit {
   }
 
   goBack() {
+    this.location.back();
+  }
+
+  showAlert() {
+    this.alert = true;
+  }
+
+  closeAlert() {
+    this.alert = false;
     this.location.back();
   }
 }

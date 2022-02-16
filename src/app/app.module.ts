@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { CounterComponent } from './counter/counter.component';
 import { EditDepartmentComponent } from './edit-department/edit-department.component';
+import { ViewDepartmentComponent } from './view-department/view-department.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EditDepartmentComponent } from './edit-department/edit-department.compo
     AddDepartmentComponent,
     CounterComponent,
     EditDepartmentComponent,
+    ViewDepartmentComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
