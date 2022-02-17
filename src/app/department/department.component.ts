@@ -17,16 +17,21 @@ export class DepartmentComponent implements OnInit {
 
   deleteWarn: boolean = false;
   alert: boolean = false;
+  deleteDepartmentId: number | undefined;
+  deleteDepartmentName: string | undefined;
 
   ngOnInit(): void {
     this.getDepartments();
   }
 
   deleteDepartmentById(id: any) {
+    console.log(id);
     this.department.deleteDepartment(id).subscribe((response) => {
       this.getDepartments();
       this.closeWarn();
       this.showAlert();
+      this.deleteDepartmentId = undefined;
+      this.deleteDepartmentName = undefined;
     });
   }
 
@@ -51,5 +56,10 @@ export class DepartmentComponent implements OnInit {
 
   closeAlert() {
     this.alert = false;
+  }
+
+  setDeleteId(name: string, id: number) {
+    this.deleteDepartmentId = id;
+    this.deleteDepartmentName = name;
   }
 }

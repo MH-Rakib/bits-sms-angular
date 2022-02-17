@@ -4,8 +4,25 @@
       class="col-12 m-auto d-flex align-items-center justify-content-between"
     >
       <div><h4>All Departments</h4></div>
-      <div>{{ departments.length }} departments found.</div>
+
+      <div>
+        <button
+          class="btn btn-danger"
+          style="border-radius: 2px"
+          routerLink="/department/addDepartment"
+        >
+          Add New Department
+        </button>
+      </div>
+
+      <!-- <div>{{ departments.length }} departments found.</div> -->
     </div>
+  </div>
+
+  <div class="col-12">
+    <p class="text-right mb-2">
+      Total <strong>{{ departments.length }}</strong> departments found.
+    </p>
   </div>
 
   <!-- <div class="container department-list">
@@ -67,7 +84,9 @@
         class="alert alert-success alert-dismissible fade show"
         role="alert"
       >
-        <strong>Department Deleted successfully.</strong>
+        <strong>
+          {{ deleteDepartmentName }} Department Deleted successfully.</strong
+        >
         <button
           type="button"
           class="close"
@@ -90,9 +109,7 @@
             <th scope="col" class="col-sm-2 text-center">Actions</th>
           </tr>
         </thead>
-        <tbody
-          *ngFor="let department of departments; let even = even; let odd = odd"
-        >
+        <tbody *ngFor="let department of departments">
           <!-- Modal Start -->
           <div
             class="modal fade"
@@ -118,7 +135,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  Do you want to delete {{ department.name }} department?
+                  Do you want to delete {{ deleteDepartmentName }} department?
                 </div>
                 <div class="modal-footer">
                   <button
@@ -133,7 +150,7 @@
                     type="button"
                     class="btn btn-danger"
                     data-dismiss="modal"
-                    (click)="deleteDepartmentById(department.id)"
+                    (click)="deleteDepartmentById(deleteDepartmentId)"
                   >
                     Delete
                   </button>
@@ -143,7 +160,7 @@
           </div>
           <!-- Modal End -->
 
-          <tr class="table-active" *ngIf="odd">
+          <!-- <tr class="table-active" *ngIf="odd">
             <th scope="row">{{ departments.indexOf(department) + 1 }}</th>
             <td># {{ department.id }}</td>
             <td>{{ department.name }}</td>
@@ -169,8 +186,8 @@
                 visibility
               </span>
             </td>
-          </tr>
-          <tr class="table-light" *ngIf="even">
+          </tr> -->
+          <tr class="table-light">
             <th scope="row">{{ departments.indexOf(department) + 1 }}</th>
             <td># {{ department.id }}</td>
             <td>{{ department.name }}</td>
@@ -186,6 +203,7 @@
                 class="deleteIcon material-icons mx-auto"
                 data-toggle="modal"
                 data-target="#exampleModalCenter"
+                (click)="setDeleteId(department.name, department.id)"
               >
                 delete
               </span>
@@ -204,11 +222,11 @@
 </div>
 
 <!-- Button trigger modal -->
-<button
+<!-- <button
   type="button"
   class="btn btn-primary"
   data-toggle="modal"
   data-target="#exampleModalCenter"
 >
   Launch demo modal
-</button>
+</button> -->
